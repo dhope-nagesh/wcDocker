@@ -24843,7 +24843,6 @@ define('wcDocker/docker',[
                             if(frame.$close[0] == e.target) {
                                 self.__closePanel(frame.panel());
                                 e.stopPropagation();
-                                e.target.focus();
                                 return;
                             } else if(frame.$tabLeft[0] == e.target) {
                                 frame._tabScrollPos -= frame.$tabBar.width() / 2;
@@ -24854,6 +24853,7 @@ define('wcDocker/docker',[
                                     frame.__updateTabs();
                                 }, 10);
                                 e.stopPropagation();
+                                e.target.focus();
                                 return;
                             } else if(frame.$tabRight[0] == e.target) {
                                 frame._tabScrollPos += frame.$tabBar.width() / 2;
@@ -24861,6 +24861,7 @@ define('wcDocker/docker',[
                                     frame.__updateTabs();
                                 }, 10);
                                 e.stopPropagation();
+                                e.target.focus();
                                 return;
                             }
                         }
