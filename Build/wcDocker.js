@@ -24842,22 +24842,26 @@ define('wcDocker/docker',[
                         if(frame.$frame.find(e.target).length > 0) {
                             if(frame.$close[0] == e.target) {
                                 self.__closePanel(frame.panel());
+                                e.stopPropagation();
+                                e.target.focus();
                                 return;
                             } else if(frame.$tabLeft[0] == e.target) {
                                 frame._tabScrollPos -= frame.$tabBar.width() / 2;
                                 if (frame._tabScrollPos < 0) {
                                     frame._tabScrollPos = 0;
                                 }
-                                frame.__updateTabs();
+                                setTimeout(function() {
+                                    frame.__updateTabs();
+                                }, 10);
+                                e.stopPropagation();
                                 return;
                             } else if(frame.$tabRight[0] == e.target) {
                                 frame._tabScrollPos += frame.$tabBar.width() / 2;
-                                frame.__updateTabs();
+                                setTimeout(function() {
+                                    frame.__updateTabs();
+                                }, 10);
+                                e.stopPropagation();
                                 return;
-                            }
-                            e.stopPropagation();
-                            if($(e.target).length) {
-                                $(e.target).focus();
                             }
                         }
                     }
